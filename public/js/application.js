@@ -4,7 +4,8 @@ $(document).ready(function() {
     $("li:nth-child(n)").css("background-color", 'white');
   });
 
-  $('li:nth-child(n)').on('click', function(e){
-    $("li:nth-child(n)").css("background-color", "blue");
+  $('li').on('click', function(e){
+    e.preventDefault();
+    $(this).css("background-color", "blue");
   });
 });
