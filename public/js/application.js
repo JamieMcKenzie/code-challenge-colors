@@ -6,6 +6,14 @@ $(document).ready(function() {
 
   $('li').on('click', function(e){
     e.preventDefault();
-    $(this).css("background-color", "blue");
+    var $this = $(this);
+    $.ajax({
+      type: 'POST',
+      url: '/color',
+      dataType: 'JSON',
+      success: function(data){
+        $this.css("background-color", data.color);
+      }
+    });
   });
 });
