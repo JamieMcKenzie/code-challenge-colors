@@ -7,3 +7,9 @@ post '/color' do
   { color: color }.to_json
 end
 
+post '/save' do
+  p params
+  # { name: name }.to_json
+end
+
+
