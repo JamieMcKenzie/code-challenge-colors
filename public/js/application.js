@@ -1,12 +1,3 @@
-// This can be used to restore saved settings.
-
-// var colors = ['red', 'blue', 'white', 'red', 'blue', 'white', 'red', 'blue', 'white', 'red', 'blue', 'white', 'red', 'blue', 'white', 'red']
-// $('#save').on('click', function(e){
-//     e.preventDefault();
-//     $('li').each(function(index){
-//       $('li:nth-child(' + index + ')').css("background-color", colors[index])
-//     })
-//   });
 function Collection(){
   colorSets = [];
 }
@@ -36,20 +27,11 @@ $(document).ready(function() {
 
   $('#save').on('click', function(e){
     e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url: '/save',
-      dataType: 'JSON',
-      success: function(data){
-        console.log(data);
-        // var data.name = new ColorSet(data.name)
-      }
+    var pickle = new ColorSet("pickle");
+    $('li').each(function(index){
+      pickle.colors.push($('li:nth-child(' + index + ')').css("background-color"));
     })
-    // new ColorSet("pickle");
-    // $('li').each(function(index){
-    //   pickle.colors.push($('li:nth-child(' + index + ')').css("background-color"));
-    // })
-    // console.log(pickle.name, pickle.colors);
+    console.log(pickle.name, pickle.colors);
   });
 
   $('li').on('click', function(e){
